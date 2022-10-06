@@ -383,13 +383,13 @@ abstract class SimpleScanActivity : ScanActivity() {
         }
 
         logoView.contentDescription = getString(R.string.bouncer_cardscan_logo)
-        logoView.setVisible(Config.displayLogo)
+        logoView.setVisible(false)
     }
 
     private fun setupVersionUi() {
         versionTextView.text = getSdkVersion()
         versionTextView.setTextSizeByRes(R.dimen.bouncerSecurityTextSize)
-        versionTextView.setVisible(Config.isDebug)
+        versionTextView.setVisible(false)
 
         if (isBackgroundDark()) {
             versionTextView.setTextColor(getColorByRes(R.color.bouncerSecurityColorDark))
