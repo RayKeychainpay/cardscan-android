@@ -19,10 +19,6 @@ abstract class BlockingResultHandler<Input, Output, Verdict> : ResultHandler<Inp
  * An implementation of a stateful result handler that does not use suspending functions. This allows interoperability
  * with java.
  */
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 abstract class BlockingStatefulResultHandler<Input, State, Output, Verdict>(
     initialState: State
 ) : StatefulResultHandler<Input, State, Output, Verdict>(initialState) {
@@ -35,10 +31,6 @@ abstract class BlockingStatefulResultHandler<Input, State, Output, Verdict>(
  * An implementation of a terminating result handler that does not use suspending functions. This allows
  * interoperability with java.
  */
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 abstract class BlockingTerminatingResultHandler<Input, State, Output>(
     initialState: State
 ) : TerminatingResultHandler<Input, State, Output>(initialState) {
@@ -59,10 +51,6 @@ abstract class BlockingTerminatingResultHandler<Input, State, Output>(
  * An implementation of a result listener that does not use suspending functions. This allows interoperability with
  * java.
  */
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 abstract class BlockingAggregateResultListener<InterimResult, FinalResult> :
     AggregateResultListener<InterimResult, FinalResult> {
     override suspend fun onInterimResult(result: InterimResult) = onInterimResultBlocking(result)
@@ -82,10 +70,6 @@ abstract class BlockingAggregateResultListener<InterimResult, FinalResult> :
  * An implementation of a result aggregator that does not use suspending functions. This allows interoperability with
  * java.
  */
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 abstract class BlockingResultAggregator<DataFrame, State, AnalyzerResult, InterimResult, FinalResult>(
     listener: AggregateResultListener<InterimResult, FinalResult>,
     initialState: State

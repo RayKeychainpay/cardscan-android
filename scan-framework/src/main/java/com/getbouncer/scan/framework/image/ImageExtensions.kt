@@ -13,20 +13,12 @@ import com.getbouncer.scan.framework.exception.ImageTypeNotSupportedException
  * Determine if this application supports an image format.
  */
 @CheckResult
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun Image.isSupportedFormat() = isSupportedFormat(this.format)
 
 /**
  * Determine if this application supports an image format.
  */
 @CheckResult
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun isSupportedFormat(imageFormat: Int) = when (imageFormat) {
     ImageFormat.YUV_420_888, ImageFormat.JPEG -> true
     ImageFormat.NV21 -> false // this fails on devices with android API 21.
@@ -39,10 +31,6 @@ fun isSupportedFormat(imageFormat: Int) = when (imageFormat) {
  */
 @CheckResult
 @Throws(ImageTypeNotSupportedException::class)
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun Image.toBitmap(
     renderScript: RenderScript,
     crop: Rect = Rect(

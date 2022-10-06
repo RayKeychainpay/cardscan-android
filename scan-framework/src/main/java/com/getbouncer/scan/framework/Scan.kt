@@ -2,13 +2,11 @@ package com.getbouncer.scan.framework
 
 import android.os.Build
 
-@Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
 object Scan {
 
     /**
      * Determine if the device is running an ARM architecture.
      */
-    @Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
     fun isDeviceArchitectureArm(): Boolean {
         val arch = System.getProperty("os.arch") ?: ""
         return "86" !in arch
@@ -17,7 +15,6 @@ object Scan {
     /**
      * Determine the architecture of the device.
      */
-    @Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
     fun getDeviceArchitecture(): String? {
         // From https://stackoverflow.com/questions/11989629/api-call-to-get-processor-architecture
 

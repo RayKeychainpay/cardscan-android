@@ -6,7 +6,6 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.util.LinkedList
 
-@Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
 interface ItemCounter<T> {
     suspend fun countItem(item: T): Int
 
@@ -18,7 +17,6 @@ interface ItemCounter<T> {
 /**
  * A class that counts and saves items.
  */
-@Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
 class ItemTotalCounter<T>(firstValue: T? = null) : ItemCounter<T> {
     private val storageMutex = Mutex()
     private val items = mutableMapOf<T, Int>()
@@ -54,7 +52,6 @@ class ItemTotalCounter<T>(firstValue: T? = null) : ItemCounter<T> {
 /**
  * A class that keeps track of [maxItemsToTrack] recent items.
  */
-@Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
 class ItemRecencyCounter<T>(
     private val maxItemsToTrack: Int,
     firstValue: T? = null

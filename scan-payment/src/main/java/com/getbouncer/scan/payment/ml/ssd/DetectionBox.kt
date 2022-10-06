@@ -4,10 +4,6 @@ import android.graphics.RectF
 import androidx.annotation.RestrictTo
 
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 data class DetectionBox(
 
     /**

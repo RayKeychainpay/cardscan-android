@@ -11,7 +11,6 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.util.concurrent.atomic.AtomicLong
 
-@Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
 interface FrameRateListener {
     fun onFrameRateUpdate(overallRate: Rate, instantRate: Rate)
 }
@@ -20,7 +19,6 @@ interface FrameRateListener {
  * A class that tracks the rate at which frames are processed. This is useful for debugging to
  * determine how quickly a device is handling data.
  */
-@Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
 class FrameRateTracker(
     private val name: String,
     private val listener: FrameRateListener? = null,

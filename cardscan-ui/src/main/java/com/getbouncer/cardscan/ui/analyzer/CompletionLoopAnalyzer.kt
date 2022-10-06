@@ -5,11 +5,9 @@ import com.getbouncer.scan.framework.Analyzer
 import com.getbouncer.scan.framework.AnalyzerFactory
 import com.getbouncer.scan.payment.analyzer.NameAndExpiryAnalyzer
 
-@Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
 class CompletionLoopAnalyzer private constructor(
     private val nameAndExpiryAnalyzer: NameAndExpiryAnalyzer?,
 ) : Analyzer<SavedFrame, Unit, CompletionLoopAnalyzer.Prediction> {
-    @Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
     class Prediction(
         val nameAndExpiryResult: NameAndExpiryAnalyzer.Prediction?,
         val isNameExtractionAvailable: Boolean,
@@ -32,7 +30,6 @@ class CompletionLoopAnalyzer private constructor(
         enableExpiryExtraction = nameAndExpiryAnalyzer?.runExpiryExtraction ?: false,
     )
 
-    @Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
     class Factory(
         private val nameAndExpiryFactory: AnalyzerFactory<NameAndExpiryAnalyzer.Input, Any, NameAndExpiryAnalyzer.Prediction, out NameAndExpiryAnalyzer>,
     ) : AnalyzerFactory<SavedFrame, Unit, Prediction, CompletionLoopAnalyzer> {

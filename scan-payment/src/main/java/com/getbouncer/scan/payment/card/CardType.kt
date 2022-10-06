@@ -12,10 +12,6 @@ import java.io.FileInputStream
 import java.nio.ByteBuffer
 import java.util.zip.ZipInputStream
 
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 sealed class CardType {
     object Credit : CardType()
     object Debit : CardType()
@@ -23,10 +19,6 @@ sealed class CardType {
     object Unknown : CardType()
 }
 
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 val getTypeTable: suspend (Context) -> Map<IntRange, CardType> = cacheFirstResultSuspend { context: Context ->
     readRawZippedResourceToStringArray(context, R.raw.payment_card_types).map {
         val fields = it.split(",")

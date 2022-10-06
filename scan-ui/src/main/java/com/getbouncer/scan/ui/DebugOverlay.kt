@@ -11,10 +11,6 @@ import android.view.View
 import androidx.annotation.VisibleForTesting
 
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 internal fun RectF.scaled(scaledSize: Size): RectF {
     return RectF(
         this.left * scaledSize.width,
@@ -27,10 +23,6 @@ internal fun RectF.scaled(scaledSize: Size): RectF {
 /**
  * A detection box to display on the debug overlay.
  */
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 data class DebugDetectionBox(
     val rect: RectF,
 
@@ -39,10 +31,6 @@ data class DebugDetectionBox(
     val label: String
 )
 
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 class DebugOverlay(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {

@@ -36,10 +36,6 @@ private const val BACKGROUND_CLASS = 10
 
 private val ASPECT_RATIO = TRAINED_IMAGE_SIZE.height.toFloat() / TRAINED_IMAGE_SIZE.width.toFloat()
 
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 class ExpiryDetect private constructor(interpreter: Interpreter) :
     TensorFlowLiteAnalyzer<
         ExpiryDetect.Input,
@@ -70,22 +66,10 @@ class ExpiryDetect private constructor(interpreter: Interpreter) :
         )
     }
 
-    @Deprecated(
-        message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-        replaceWith = ReplaceWith("StripeCardScan"),
-    )
     data class Input(val expiryDetectImage: TrackedImage<Bitmap>, val expiryBox: RectF)
 
-    @Deprecated(
-        message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-        replaceWith = ReplaceWith("StripeCardScan"),
-    )
     data class Prediction(val expiry: Expiry?)
 
-    @Deprecated(
-        message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-        replaceWith = ReplaceWith("StripeCardScan"),
-    )
     data class Expiry(val month: String, val year: String) : Comparable<Expiry> {
         override fun toString() = formatExpiry(
             day = null,
@@ -171,10 +155,6 @@ class ExpiryDetect private constructor(interpreter: Interpreter) :
      * A factory for creating instances of this analyzer. This downloads the model from the web. If unable to download
      * from the web, this will throw a [FileNotFoundException].
      */
-    @Deprecated(
-        message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-        replaceWith = ReplaceWith("StripeCardScan"),
-    )
     class Factory(
         context: Context,
         fetchedModel: FetchedData,
@@ -196,10 +176,6 @@ class ExpiryDetect private constructor(interpreter: Interpreter) :
     /**
      * A fetcher for downloading model data.
      */
-    @Deprecated(
-        message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-        replaceWith = ReplaceWith("StripeCardScan"),
-    )
     class ModelFetcher(context: Context) : UpdatingModelWebFetcher(context) {
         override val defaultModelVersion: String = "0.0.1.16"
         override val defaultModelHash: String = "55eea0d57239a7e92904fb15209963f7236bd06919275bdeb0a765a94b559c97"

@@ -4,10 +4,6 @@ package com.getbouncer.scan.payment.card
  * An interface for a class that requires a card to match. This provides the methods used to determine if a given card
  * matches or does not match the required card.
  */
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 interface RequiresMatchingCard {
     val requiredIin: String?
     val requiredLastFour: String?
@@ -17,10 +13,6 @@ interface RequiresMatchingCard {
      *
      * TODO: use contracts when they are no longer experimental
      */
-    @Deprecated(
-        message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-        replaceWith = ReplaceWith("StripeCardScan"),
-    )
     fun matchesRequiredCard(pan: String?): Boolean {
         // contract { returns(true) implies (pan != null) }
         return pan != null && isValidPan(pan) && panMatches(requiredIin, requiredLastFour, pan)
@@ -31,10 +23,6 @@ interface RequiresMatchingCard {
      *
      * TODO: use contracts when they are no longer experimental
      */
-    @Deprecated(
-        message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-        replaceWith = ReplaceWith("StripeCardScan"),
-    )
     fun doesNotMatchRequiredCard(pan: String?): Boolean {
         // contract { returns(true) implies (pan != null) }
         return pan != null && isValidPan(pan) && !panMatches(requiredIin, requiredLastFour, pan)

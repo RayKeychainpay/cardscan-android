@@ -34,7 +34,6 @@ import kotlinx.coroutines.withContext
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@Deprecated("Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
 data class ScannedCard(
     val pan: String?,
     val expiryDay: String?,
@@ -46,7 +45,6 @@ data class ScannedCard(
     val errorString: String?,
 ) : Parcelable
 
-@Deprecated("Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
 interface CardProcessedResultListener : CardScanResultListener {
 
     /**
@@ -58,7 +56,6 @@ interface CardProcessedResultListener : CardScanResultListener {
 internal const val INTENT_PARAM_REQUEST = "request"
 internal const val INTENT_PARAM_RESULT = "result"
 
-@Deprecated("Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
 open class CardScanActivity :
     CardScanBaseActivity(),
     AggregateResultListener<MainLoopAggregator.InterimResult, MainLoopAggregator.FinalResult>,

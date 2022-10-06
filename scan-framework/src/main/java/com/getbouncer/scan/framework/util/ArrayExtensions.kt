@@ -8,10 +8,6 @@ import kotlin.math.min
 /**
  * Update an array in place with a modifier function.
  */
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun <T> Array<T>.updateEach(operation: (original: T) -> T) {
     for (i in this.indices) {
         this[i] = operation(this[i])
@@ -21,10 +17,6 @@ fun <T> Array<T>.updateEach(operation: (original: T) -> T) {
 /**
  * Update a [FloatArray] in place with a modifier function.
  */
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun FloatArray.updateEach(operation: (original: Float) -> Float) {
     for (i in this.indices) {
         this[i] = operation(this[i])
@@ -35,10 +27,6 @@ fun FloatArray.updateEach(operation: (original: Float) -> Float) {
  * Filter an array to only those values specified in an index array.
  */
 @CheckResult
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 inline fun <reified T> Array<T>.filterByIndexes(indexesToKeep: IntArray) =
     Array(indexesToKeep.size) { this[indexesToKeep[it]] }
 
@@ -46,10 +34,6 @@ inline fun <reified T> Array<T>.filterByIndexes(indexesToKeep: IntArray) =
  * Filter an array to only those values specified in an index array.
  */
 @CheckResult
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun FloatArray.filterByIndexes(indexesToKeep: IntArray) =
     FloatArray(indexesToKeep.size) { this[indexesToKeep[it]] }
 
@@ -57,10 +41,6 @@ fun FloatArray.filterByIndexes(indexesToKeep: IntArray) =
  * Flatten an array of arrays into a single array of sequential values.
  */
 @CheckResult
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun Array<FloatArray>.flatten() = if (this.isNotEmpty()) {
     this.reshape(this.size * this[0].size)[0]
 } else {
@@ -71,10 +51,6 @@ fun Array<FloatArray>.flatten() = if (this.isNotEmpty()) {
  * Transpose an array of float arrays.
  */
 @CheckResult
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun Array<FloatArray>.transpose() = if (this.isNotEmpty()) {
     val oldRows = this.size
     val oldColumns = this[0].size
@@ -88,10 +64,6 @@ fun Array<FloatArray>.transpose() = if (this.isNotEmpty()) {
  * that the array is evenly divisible by the new columns.
  */
 @CheckResult
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun Array<FloatArray>.reshape(newColumns: Int): Array<FloatArray> {
     val oldRows = this.size
     val oldColumns = if (this.isNotEmpty()) this[0].size else 0
@@ -116,10 +88,6 @@ fun Array<FloatArray>.reshape(newColumns: Int): Array<FloatArray> {
  * Clamp the value between min and max
  */
 @CheckResult
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun clamp(value: Float, minimum: Float, maximum: Float): Float =
     max(minimum, min(maximum, value))
 
@@ -127,10 +95,6 @@ fun clamp(value: Float, minimum: Float, maximum: Float): Float =
  * Return a list of indexes that pass the filter.
  */
 @CheckResult
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun FloatArray.filteredIndexes(predicate: (Float) -> Boolean): IntArray {
     val filteredIndexes = ArrayList<Int>()
     for (index in this.indices) {
@@ -146,10 +110,6 @@ fun FloatArray.filteredIndexes(predicate: (Float) -> Boolean): IntArray {
  * evenly divisible by the [chunkSize], the last ByteArray may be smaller than the chunk size.
  */
 @CheckResult
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun ByteArray.chunk(chunkSize: Int): Array<ByteArray> =
     Array(this.size / chunkSize + if (this.size % chunkSize == 0) 0 else 1) {
         copyOfRange(it * chunkSize, min((it + 1) * chunkSize, this.size))
@@ -159,10 +119,6 @@ fun ByteArray.chunk(chunkSize: Int): Array<ByteArray> =
  * Find the index of the maximum value in the array.
  */
 @CheckResult
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun FloatArray.indexOfMax(): Int? {
     if (isEmpty()) {
         return null
@@ -184,20 +140,12 @@ fun FloatArray.indexOfMax(): Int? {
  * Convert a [ByteBuffer] to a [ByteArray].
  */
 @CheckResult
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun ByteBuffer.toByteArray() = ByteArray(remaining()).also { this.get(it) }
 
 /**
  * Convert a list of [ByteBuffer]s to a single [ByteArray].
  */
 @CheckResult
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun List<ByteBuffer>.toByteArray(): ByteArray {
     val totalSize = this.sumOf { it.remaining() }
     var offset = 0
@@ -216,18 +164,10 @@ fun List<ByteBuffer>.toByteArray(): ByteArray {
  * Map an array to a new [Array].
  */
 @CheckResult
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 inline fun <T, reified U> Array<T>.mapArray(transform: (T) -> U) = Array(this.size) { transform(this[it]) }
 
 /**
  * Map an array to a new [IntArray].
  */
 @CheckResult
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 fun <T> Array<T>.mapToIntArray(transform: (T) -> Int) = IntArray(this.size) { transform(this[it]) }

@@ -8,10 +8,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 data class ClientDevice(
     @SerialName("ids") val ids: ClientDeviceIds,
     @SerialName("type") val name: String,
@@ -25,10 +21,6 @@ data class ClientDevice(
     @SerialName("platform") val platform: String
 ) {
     companion object {
-        @Deprecated(
-            message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-            replaceWith = ReplaceWith("StripeCardScan"),
-        )
         fun fromDevice(device: Device) = ClientDevice(
             ids = ClientDeviceIds.fromDeviceIds(device.ids),
             name = device.name,
@@ -46,18 +38,10 @@ data class ClientDevice(
 
 @Serializable
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 data class ClientDeviceIds(
     @SerialName("vendor_id") val androidId: String?
 ) {
     companion object {
-        @Deprecated(
-            message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-            replaceWith = ReplaceWith("StripeCardScan"),
-        )
         fun fromDeviceIds(deviceIds: DeviceIds) = ClientDeviceIds(
             androidId = deviceIds.androidId
         )

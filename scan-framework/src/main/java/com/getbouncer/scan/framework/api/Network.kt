@@ -51,10 +51,6 @@ private val networkTimer by lazy { Timer.newInstance(Config.logTag, "network") }
 /**
  * Send a post request to a bouncer endpoint.
  */
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 suspend fun <Request, Response, Error> postForResult(
     context: Context,
     path: String,
@@ -76,10 +72,6 @@ suspend fun <Request, Response, Error> postForResult(
 /**
  * Send a post request to a bouncer endpoint and ignore the response.
  */
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 suspend fun <Request> postData(
     context: Context,
     path: String,
@@ -96,10 +88,6 @@ suspend fun <Request> postData(
 /**
  * Send a get request to a bouncer endpoint and parse the response.
  */
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 suspend fun <Response, Error> getForResult(
     context: Context,
     path: String,

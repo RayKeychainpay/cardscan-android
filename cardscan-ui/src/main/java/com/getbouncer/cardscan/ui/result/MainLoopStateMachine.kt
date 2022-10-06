@@ -22,7 +22,6 @@ internal val MINIMUM_PAN_AGREEMENT = 2
 @VisibleForTesting
 internal val DESIRED_SIDE_COUNT = 8
 
-@Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
 sealed class MainLoopState(
     val runOcr: Boolean,
     val runCardDetect: Boolean,
@@ -32,7 +31,6 @@ sealed class MainLoopState(
         transition: MainLoopAnalyzer.Prediction,
     ): MainLoopState
 
-    @Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
     class Initial : MainLoopState(runOcr = true, runCardDetect = false) {
         override suspend fun consumeTransition(
             transition: MainLoopAnalyzer.Prediction,
@@ -43,7 +41,6 @@ sealed class MainLoopState(
         }
     }
 
-    @Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
     class PanFound(
         private val panCounter: ItemTotalCounter<String>,
     ) : MainLoopState(runOcr = true, runCardDetect = true) {
@@ -53,12 +50,9 @@ sealed class MainLoopState(
 
         private fun isCardSatisfied() = visibleCardCount >= DESIRED_SIDE_COUNT
         private fun isPanSatisfied() =
-            (panCounter.getHighestCountItem()?.first ?: 0) >= DESIRED_PAN_AGREEMENT ||
+            panCounter.getHighestCountItem()?.first ?: 0 >= DESIRED_PAN_AGREEMENT ||
                 (
-                    (
-                        panCounter.getHighestCountItem()?.first
-                            ?: 0
-                        ) >= MINIMUM_PAN_AGREEMENT &&
+                    panCounter.getHighestCountItem()?.first ?: 0 >= MINIMUM_PAN_AGREEMENT &&
                         reachedStateAt.elapsedSince() > PAN_SEARCH_DURATION
                     )
 
@@ -83,7 +77,6 @@ sealed class MainLoopState(
         }
     }
 
-    @Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
     class PanSatisfied(
         val pan: String,
         var visibleCardCount: Int,
@@ -105,7 +98,6 @@ sealed class MainLoopState(
         }
     }
 
-    @Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
     class CardSatisfied(
         private val panCounter: ItemTotalCounter<String>,
     ) : MainLoopState(runOcr = true, runCardDetect = false) {
@@ -129,7 +121,6 @@ sealed class MainLoopState(
         }
     }
 
-    @Deprecated(message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan")
     class Finished(val pan: String) : MainLoopState(runOcr = false, runCardDetect = false) {
         override suspend fun consumeTransition(
             transition: MainLoopAnalyzer.Prediction,

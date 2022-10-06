@@ -4,10 +4,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 data class ModelDetailsRequest(
     @SerialName("platform") val platform: String,
     @SerialName("model_class") val modelClass: String,
@@ -18,10 +14,6 @@ data class ModelDetailsRequest(
 )
 
 @Serializable
-@Deprecated(
-    message = "Replaced by stripe card scan. See https://github.com/stripe/stripe-android/tree/master/stripecardscan",
-    replaceWith = ReplaceWith("StripeCardScan"),
-)
 data class ModelDetailsResponse(
     @SerialName("model_url") val url: String?,
     @SerialName("model_version") val modelVersion: String,
