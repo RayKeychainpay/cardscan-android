@@ -48,19 +48,19 @@ object Config {
      * Whether or not to track stats
      */
     @JvmStatic
-    val trackStats: Boolean = true
+    val trackStats: Boolean = false
 
     /**
      * Whether or not to upload stats
      */
     @JvmStatic
-    var uploadStats: Boolean = true
+    var uploadStats: Boolean = false
 
     /**
      * Whether or not to display the Bouncer logo
      */
     @JvmStatic
-    var displayLogo: Boolean = true
+    var displayLogo: Boolean = false
 
     /**
      * Whether or not to display the result of the scan to the user
